@@ -584,7 +584,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2010783884}
   - component: {fileID: 2010783883}
-  - component: {fileID: 2010783882}
   m_Layer: 0
   m_Name: SceneSwitcher
   m_TagString: Untagged
@@ -592,19 +591,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2010783882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010783881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9076f37465cab4ea55f90b0c2b7ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splashScreenTimer: 3
 --- !u!114 &2010783883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuIndex: 1
+  splashScreenWaitTime: 3
 --- !u!4 &2010783884
 Transform:
   m_ObjectHideFlags: 0

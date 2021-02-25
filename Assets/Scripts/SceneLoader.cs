@@ -6,9 +6,16 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour{
 
     [SerializeField] int mainMenuIndex = 1;
+    [SerializeField] float splashScreenWaitTime;
+
+    int currentSceneIndex;
     // Start is called before the first frame update
     void Start(){
-        
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex == 0){
+            Debug.Log("We're getting there");
+            StartCoroutine(loadMainMenu(splashScreenWaitTime));
+        }
     }
 
     // Update is called once per frame
@@ -25,7 +32,7 @@ public class SceneLoader : MonoBehaviour{
     }
 
     public void reloadScene() {
-        loadScene(SceneManager.GetActiveScene().buildIndex);   
+        loadScene(currentSceneIndex);   
     }
 
 
@@ -45,10 +52,11 @@ public class SceneLoader : MonoBehaviour{
 
     public IEnumerator reloadSceneWithDelay(float secondsDelay) {
         yield return new WaitForSeconds(secondsDelay);
-        loadScene(SceneManager.GetActiveScene().buildIndex);
+        loadScene(currentSceneIndex);
     }
     
     public IEnumerator loadMainMenu(float secondsDelay) {
+        Debug.Log("loading Main Menu");
         yield return new WaitForSeconds(secondsDelay);
         loadScene(mainMenuIndex);
     }
