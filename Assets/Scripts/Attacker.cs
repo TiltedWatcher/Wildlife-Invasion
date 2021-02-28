@@ -10,6 +10,10 @@ public class Attacker : MonoBehaviour{
     //states
     float currentSpeed = 1f;
 
+    private void Start() {
+        currentSpeed = moveSpeedMultiplier;
+    }
+
     // Update is called once per frame
     void Update(){
         transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
