@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DefendersShooter : MonoBehaviour{
 
-    [SerializeField] GameObject projectile;
+    [SerializeField] Projectile projectilePrefab;
     [SerializeField] GameObject projectileShooter;
+    [SerializeField] float projectileSpeed;
 
     public void Fire( ) {
-        Instantiate(projectile, projectileShooter.transform.position, Quaternion.identity);
-        
+        var projectile = Instantiate(projectilePrefab, projectileShooter.transform.position, Quaternion.identity);
+        projectile.Speed = projectileSpeed;
     }
 }
