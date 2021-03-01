@@ -6,8 +6,9 @@ public class Projectile : MonoBehaviour{
 
 
     [SerializeField] float projectileSpeed;
+    [SerializeField] float damage = 50f;
+    [SerializeField] bool penetrates;
     private void Update() {
-        Debug.Log("Speed " + projectileSpeed);
 
         transform.Translate(Vector2.right * projectileSpeed * Time.deltaTime);
 
@@ -30,6 +31,21 @@ public class Projectile : MonoBehaviour{
             yield return new WaitForFixedUpdate();
 
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        var otherHealth = otherCollider.GetComponent<HealthManager>();
+        var attacker = otherCollider.GetComponent<Attacker>();
+
+        if (attacker && otherHealth) {
+            otherHealth.DealDamage(damage);
+        }
+        if (!penetrates) {
+            Destroy(gameObject);
+        }
+
+
+
     }
 
 
