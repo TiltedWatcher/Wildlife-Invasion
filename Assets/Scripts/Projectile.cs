@@ -39,10 +39,12 @@ public class Projectile : MonoBehaviour{
 
         if (attacker && otherHealth) {
             otherHealth.DealDamage(damage);
+            if (!penetrates) {
+
+                Destroy(gameObject);
+            }
         }
-        if (!penetrates) {
-            Destroy(gameObject);
-        }
+
 
 
 
