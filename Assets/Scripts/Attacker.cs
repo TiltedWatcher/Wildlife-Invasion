@@ -7,6 +7,7 @@ public class Attacker : MonoBehaviour{
     [SerializeField][Range(0f,10f)] float moveSpeedMultiplier = 1f;
 
 
+
     //states
     float currentSpeed = 1f;
 

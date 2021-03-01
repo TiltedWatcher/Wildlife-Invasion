@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 100
+  deathVFX: {fileID: 8076949457690394866, guid: e2516d3e8a7a4d049adb61afb1ad57fd, type: 3}
