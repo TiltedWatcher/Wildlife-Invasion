@@ -12,7 +12,7 @@ public class Attacker : MonoBehaviour{
     float currentSpeed = 1f;
 
     private void Start() {
-        currentSpeed = moveSpeedMultiplier;
+        //currentSpeed = moveSpeedMultiplier;
     }
 
     // Update is called once per frame
