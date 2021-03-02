@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour{
 
-    [SerializeField] GameObject defender;
+    Defender defender;
     //[SerializeField][Range(-0.3f,0.3f)] float spawnOffsetY = 0.16f;
     private void OnMouseDown() {
 
@@ -13,7 +13,7 @@ public class DefenderSpawner : MonoBehaviour{
 
 
     private void SpawnDefender(Vector2 spawnPos) {
-        GameObject newDefender = Instantiate(defender, spawnPos, Quaternion.identity) as GameObject;
+        Defender newDefender = Instantiate(defender, spawnPos, Quaternion.identity) as Defender;
 
     }
 
@@ -29,6 +29,10 @@ public class DefenderSpawner : MonoBehaviour{
         float newX = Mathf.RoundToInt(rawWorldPos.x);
         float newY = Mathf.RoundToInt(rawWorldPos.y); //+ spawnOffsetY;
         return new Vector2(newX, newY);
+    }
+
+    public void SetSelectDefender(Defender selectedDefender) {
+        defender = selectedDefender;
     }
 
 }

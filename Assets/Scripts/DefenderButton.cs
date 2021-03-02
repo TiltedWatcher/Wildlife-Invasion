@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefenderButton : MonoBehaviour{
+    [SerializeField] Defender defender;
+
+    DefenderSpawner defenderSpawner;
+
+    private void Start() {
+        defenderSpawner = FindObjectOfType<DefenderSpawner>();
+    }
 
     private void OnMouseDown() {
         var buttons = FindObjectsOfType<DefenderButton>();
@@ -12,6 +19,7 @@ public class DefenderButton : MonoBehaviour{
         }
         
         GetComponent<SpriteRenderer>().color = Color.white;
+        defenderSpawner.SetSelectDefender(defender);
 
     }
 }
