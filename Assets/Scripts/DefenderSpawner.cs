@@ -5,6 +5,7 @@ using UnityEngine;
 public class DefenderSpawner : MonoBehaviour{
 
     Defender defender;
+    int sunCountCurrent;
     //[SerializeField][Range(-0.3f,0.3f)] float spawnOffsetY = 0.16f;
     private void OnMouseDown() {
 
