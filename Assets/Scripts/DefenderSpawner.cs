@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour{
 
+    //[SerializeField] Defender defaultDefender;
+
     Defender defender;
     int sunCountCurrent;
     //[SerializeField][Range(-0.3f,0.3f)] float spawnOffsetY = 0.16f;
+
+    private void Start() {
+        //defender = defaultDefender;
+    }
+
     private void OnMouseDown() {
 
         SpawnDefender(GetSquareClicked());
