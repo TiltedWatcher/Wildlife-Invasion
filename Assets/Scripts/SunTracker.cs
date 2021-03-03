@@ -23,7 +23,8 @@ public class SunTracker : MonoBehaviour{
     }
 
     public void addSuns(int amount) {
-        currentSunCount += amount; 
+        currentSunCount += amount;
+        UpdateDisplay();
     }
 
     public void spendStars(int amount) {

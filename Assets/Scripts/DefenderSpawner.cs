@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class DefenderSpawner : MonoBehaviour{
 
-    //[SerializeField] Defender defaultDefender;
+    [SerializeField] AudioClip errorSound;
 
     Defender defender;
     int sunCountCurrent;
-    //[SerializeField][Range(-0.3f,0.3f)] float spawnOffsetY = 0.16f;
+    AudioSource audioPlayer;
 
     private void Start() {
         //defender = defaultDefender;
+        audioPlayer = GetComponent<AudioSource>();
     }
 
     private void OnMouseDown() {
 
-        SpawnDefender(GetSquareClicked());
+        AttemptToPlaceDefender(GetSquareClicked());
     }
 
 
@@ -37,6 +38,18 @@ public class DefenderSpawner : MonoBehaviour{
         float newX = Mathf.RoundToInt(rawWorldPos.x);
         float newY = Mathf.RoundToInt(rawWorldPos.y); //+ spawnOffsetY;
         return new Vector2(newX, newY);
+    }
+
+    private void AttemptToPlaceDefender(Vector2 gridPos) {
+        var sunDisplay = FindObjectOfType<SunTracker>();
+        var defenderCost = defender.getSunCost();
+
+        if (sunDisplay.checkIfEnoughSuns(defenderCost)) {
+            SpawnDefender(gridPos);
+            sunDisplay.spendStars(defenderCost);
+        } else {
+            audioPlayer.PlayOneShot(errorSound);
+        }
     }
 
     public void SetSelectDefender(Defender selectedDefender) {
