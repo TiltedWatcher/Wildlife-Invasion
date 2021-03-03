@@ -10,7 +10,8 @@ public class Defender : MonoBehaviour{
         demolition = FindObjectOfType<Demolition>();
     }
 
-    public void addSuns(int amount) {
+    public void addSuns(int maxAmount) {
+        int amount = Random.Range(1, (maxAmount +1));
         FindObjectOfType<SunTracker>().addSuns(amount);
 
     }
