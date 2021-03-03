@@ -13,9 +13,21 @@ public class Attacker : MonoBehaviour{
 
     //cached references
     GameObject currentTarget;
+    Animator animator;
 
-    void Update(){
+    private void Start() {
+        animator = GetComponent<Animator>();
+    }
+
+    void Update() {
+        updateAnimationState();
         transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
+    }
+
+    private void updateAnimationState() {
+        if (!currentTarget) {
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     public void SetMovementSpeed(float speed) {
@@ -37,6 +49,7 @@ public class Attacker : MonoBehaviour{
         if (health) {
             health.DealDamage(damage);
         }
+        
 
     }
 
