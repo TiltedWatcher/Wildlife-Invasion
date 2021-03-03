@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 4
-  damage: 200
+  damage: 150
   penetrates: 0
 --- !u!61 &4173866174308575073
 BoxCollider2D:
