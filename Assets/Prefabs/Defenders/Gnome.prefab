@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63808fb088d4a5042b610939293ce919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunsCost: 110
+  sunsCost: 150
 --- !u!114 &3385823196451931069
 MonoBehaviour:
   m_ObjectHideFlags: 0

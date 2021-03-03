@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63808fb088d4a5042b610939293ce919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunsCost: 30
+  sunsCost: 40
 --- !u!114 &3639323853769621577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 9155538883766228355, guid: 89457c237da8ca34fae605e3e372e024, type: 3}
   projectileShooter: {fileID: 8446319035048198015}
-  projectileSpeed: 3.5
 --- !u!95 &7966148843324235558
 Animator:
   serializedVersion: 3
