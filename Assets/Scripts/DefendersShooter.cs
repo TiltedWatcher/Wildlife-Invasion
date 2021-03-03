@@ -7,7 +7,7 @@ public class DefendersShooter : MonoBehaviour{
 
     [SerializeField] Projectile projectilePrefab;
     [SerializeField] GameObject projectileShooter;
-    [SerializeField] float projectileSpeed;
+    //[SerializeField] float projectileSpeed;
 
     //cached references
     AttackerSpawner myLaneSpawner;
@@ -52,6 +52,6 @@ public class DefendersShooter : MonoBehaviour{
 
     public void Fire( ) {
         var projectile = Instantiate(projectilePrefab, projectileShooter.transform.position, Quaternion.identity);
-        projectile.Speed = projectileSpeed;
+        //projectile.Speed = projectileSpeed;
     }
 }
