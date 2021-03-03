@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 5434937187035215775}
   m_Layer: 0
   m_Name: Zuccini
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileSpeed: 5
   damage: 50
+  penetrates: 0
 --- !u!61 &2036191900179937022
 BoxCollider2D:
   m_ObjectHideFlags: 0
