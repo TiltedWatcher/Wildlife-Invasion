@@ -23,7 +23,8 @@ public class DefenderButton : MonoBehaviour{
         foreach (DefenderButton button in buttons) {
             button.GetComponent<SpriteRenderer>().color = new Color32(45, 45, 45, 255);
         }
-        demoButton.GetComponent<SpriteRenderer>().color = new Color32(80, 80, 80, 255);
+        demoButton.toggleDemolitionMode(false);
+        
 
         selectDefender();
 
