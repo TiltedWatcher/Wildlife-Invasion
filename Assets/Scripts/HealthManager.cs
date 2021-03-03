@@ -8,7 +8,7 @@ public class HealthManager : MonoBehaviour{
     [SerializeField] GameObject deathVFX;
 
     //states
-    float currentHealth;
+    [SerializeField] float currentHealth; //serialized for monitoring purpose
 
     private void Start() {
         currentHealth = startHealth;
