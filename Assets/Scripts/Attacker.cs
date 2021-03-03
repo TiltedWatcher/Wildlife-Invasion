@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attacker : MonoBehaviour{
 
-    [SerializeField][Range(0f,10f)] float moveSpeedMultiplier = 1f;
+ //   [SerializeField][Range(0f,10f)] float moveSpeedMultiplier = 1f;
 
 
 

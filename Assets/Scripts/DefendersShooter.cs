@@ -9,25 +9,28 @@ public class DefendersShooter : MonoBehaviour{
     [SerializeField] GameObject projectileShooter;
     [SerializeField] float projectileSpeed;
 
+    //cached references
+    AttackerSpawner myLaneSpawner;
+    Animator animator;
+
     private void Start() {
         setLaneSpawner();
+        animator = GetComponent<Animator>();
     }
 
     private void Update() {
 
 
         if (isAttackerInLane()) {
-            Debug.Log("Shooty McShootface");
-            //TODO change animation to shoot
+            animator.SetBool("isAttacking", true);
         } else {
-            Debug.Log("Ladida do nothing");
-            //TODO change animation to idle
+            animator.SetBool("isAttacking", false);
         }
     }
 
     private bool isAttackerInLane() {
-        return true;
-        throw new NotImplementedException();
+        
+        return (myLaneSpawner.gameObject.transform.childCount > 0);
     }
 
 
@@ -35,7 +38,13 @@ public class DefendersShooter : MonoBehaviour{
         AttackerSpawner[] spawnersArray = FindObjectsOfType<AttackerSpawner>();
 
         foreach (AttackerSpawner spawner in spawnersArray) {
-        
+            bool isCloseEnough = (Math.Abs(spawner.transform.position.y - transform.position.y) <= Mathf.Epsilon);
+
+            if (isCloseEnough) {
+
+                myLaneSpawner = spawner;
+
+            }
         }
 
     }
