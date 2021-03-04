@@ -7,6 +7,8 @@ public class LevelControler : MonoBehaviour{
 
     [SerializeField] int playerStartingLifes = 10;
     [SerializeField] float gameOverDelay = 2f;
+    [Tooltip("Level Duration in seconds")]
+    [SerializeField] float gameDuration = 60f;
 
 
     //cached references
@@ -16,6 +18,7 @@ public class LevelControler : MonoBehaviour{
     int currentLifeCount;
 
     void Start(){
+        FindObjectOfType<GameTimer>().LevelDuration = gameDuration;
         sceneLoader = FindObjectOfType<SceneLoader>();
         playerLifeDisplay = FindObjectOfType<PlayerLifeDisplay>();
     }

@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7084aa35746676844a915021f1d57812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStartingLifes: 1
+  playerStartingLifes: 10
   gameOverDelay: 2
+  gameDuration: 60
 --- !u!114 &8271067883556389740
 MonoBehaviour:
   m_ObjectHideFlags: 0
