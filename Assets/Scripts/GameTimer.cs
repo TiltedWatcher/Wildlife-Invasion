@@ -9,6 +9,9 @@ public class GameTimer : MonoBehaviour{
     float timePassed;
 
     Slider slider;
+    LevelControler level;
+
+    bool triggeredLevelEnd;
 
     public float LevelDuration {
         get => levelDuration;
@@ -17,17 +20,23 @@ public class GameTimer : MonoBehaviour{
 
     private void Start() {
         slider = GetComponent<Slider>();
+        level = FindObjectOfType<LevelControler>();
     }
 
 
     // Update is called once per frame
     void Update(){
+        if (triggeredLevelEnd) {
+            return;
+        }
         slider.value = Time.timeSinceLevelLoad / levelDuration;
 
         bool timerFinished = (Time.timeSinceLevelLoad >= levelDuration);
 
         if (timerFinished) {
-            Debug.Log("Timer expired");
+            Debug.Log("Stopping all spawners");
+            level.LevelTimerEnded();
+            triggeredLevelEnd = true;
         }
     }
 }

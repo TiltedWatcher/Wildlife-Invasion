@@ -12,6 +12,7 @@ public class AttackerSpawner : MonoBehaviour{
     [SerializeField] Attacker[] attackerPrefabs;
 
     int attackerIndex;
+    bool spawning = true;
 
     IEnumerator Start(){
 
@@ -21,8 +22,7 @@ public class AttackerSpawner : MonoBehaviour{
             SpawnAtacker();
         }
 
-
-        while (active) {
+        while (active && spawning) {
             
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
             SpawnAtacker();
@@ -30,14 +30,16 @@ public class AttackerSpawner : MonoBehaviour{
         }
     }
 
-    // Update is called once per frame
-    void Update(){
-        
+    public void StopSpawning() {
+        spawning = false;
+        StopCoroutine(Start());
     }
 
- /*   IEnumerator spawning() {
+    public void restartSpawning() {
+        spawning = true;
+        StartCoroutine(Start());
+    }
 
-    } */
 
     private void SpawnAtacker() {
 

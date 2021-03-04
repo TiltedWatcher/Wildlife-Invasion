@@ -15,7 +15,11 @@ public class LevelControler : MonoBehaviour{
     SceneLoader sceneLoader;
     PlayerLifeDisplay playerLifeDisplay;
 
+    //states
+    int numberOfAttackersAlive = 0;
     int currentLifeCount;
+    bool levelTimerFinished;
+
 
     void Start(){
         FindObjectOfType<GameTimer>().LevelDuration = gameDuration;
@@ -23,10 +27,6 @@ public class LevelControler : MonoBehaviour{
         playerLifeDisplay = FindObjectOfType<PlayerLifeDisplay>();
     }
 
-    // Update is called once per frame
-    void Update(){
-        
-    }
 
     public void LifeDamage(int amount) {
         currentLifeCount = playerLifeDisplay.removeLifes(amount);
@@ -34,6 +34,9 @@ public class LevelControler : MonoBehaviour{
         if (currentLifeCount <= 0) {
             GameOver();
         }
+    }
+
+    private void Update() {
     }
 
     private void GameOver() {
@@ -44,5 +47,36 @@ public class LevelControler : MonoBehaviour{
 
     public int Lifes {
         get => playerStartingLifes;
+    }
+
+    public void AttackerHasSpawned() {
+        numberOfAttackersAlive++;
+    }
+
+    public void AttackerWasDestroyed() {
+        numberOfAttackersAlive--;
+        EndOfLevel();
+    }
+
+    private void EndOfLevel() {
+        Debug.Log("Test");
+        if (numberOfAttackersAlive <= 0 && levelTimerFinished) {
+            Debug.Log("You did it!");
+        } else {
+            return;
+        }
+    }
+
+    public void LevelTimerEnded() {
+        levelTimerFinished = true;
+        StopSpawners();
+    }
+
+    private void StopSpawners() {
+        AttackerSpawner[] spawnerArray = FindObjectsOfType<AttackerSpawner>();
+
+        foreach (AttackerSpawner spawner in spawnerArray) {
+            spawner.StopSpawning();
+        }
     }
 }
