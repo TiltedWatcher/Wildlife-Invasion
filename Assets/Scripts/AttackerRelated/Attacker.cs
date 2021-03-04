@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour{
+public class Attacker: MonoBehaviour {
 
- //   [SerializeField][Range(0f,10f)] float moveSpeedMultiplier = 1f;
+    [SerializeField] int playerLifeDamage = 1;
 
 
 
@@ -44,13 +44,17 @@ public class Attacker : MonoBehaviour{
         if (!currentTarget) {
             return;
         }
-            HealthManager health = currentTarget.GetComponent<HealthManager>();
+        HealthManager health = currentTarget.GetComponent<HealthManager>();
 
         if (health) {
             health.DealDamage(damage);
         }
-        
 
+
+    }
+
+    public int PlayerLifeDamage{
+        get => playerLifeDamage;
     }
 
 }
