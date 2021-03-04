@@ -28,7 +28,7 @@ public class SceneLoader : MonoBehaviour{
     }
 
     public void loadGameOver(float delay) {
-        loadSceneWithDelay(delay, "GameOver");
+        StartCoroutine(loadSceneWithDelay(delay, "GameOver"));
     }
 
     public void reloadScene() {
