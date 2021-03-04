@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,17 +19,16 @@ public class SceneLoader : MonoBehaviour{
         }
     }
 
-    // Update is called once per frame
-    void Update(){
-        
-    }
-
     public void loadScene(int sceneIndex) {
         SceneManager.LoadScene(sceneIndex);
     }
 
     public void loadScene(string sceneName) {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void loadGameOver(float delay) {
+        loadSceneWithDelay(delay, "GameOver");
     }
 
     public void reloadScene() {

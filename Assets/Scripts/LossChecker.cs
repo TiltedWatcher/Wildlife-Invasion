@@ -5,10 +5,10 @@ using UnityEngine;
 public class LossChecker : MonoBehaviour{
 
     //cached references
-    PlayerLifeDisplay lifeDisplay;
+    LevelControler level;
 
     private void Start() {
-        lifeDisplay = FindObjectOfType<PlayerLifeDisplay>();
+        level = FindObjectOfType<LevelControler>();
     }
 
 
@@ -16,7 +16,7 @@ public class LossChecker : MonoBehaviour{
         var otherObject = collision.gameObject;
 
         if (otherObject.GetComponent<Attacker>()) {
-            lifeDisplay.removeLifes(otherObject.GetComponent<Attacker>().PlayerLifeDamage);
+            level.LifeDamage(otherObject.GetComponent<Attacker>().PlayerLifeDamage);
         }
 
     }

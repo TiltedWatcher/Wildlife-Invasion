@@ -5,14 +5,15 @@ using TMPro;
 
 public class PlayerLifeDisplay : MonoBehaviour{
 
-    [SerializeField] int playerStartingLifeCount = 10;
 
     TextMeshProUGUI lifesText;
+    LevelControler levelControler;
     int currentLifeCount;
 
 
     void Start() {
-        currentLifeCount = playerStartingLifeCount;
+        levelControler = FindObjectOfType<LevelControler>();
+        currentLifeCount = levelControler.Lifes;
         lifesText = GetComponent<TextMeshProUGUI>();
         UpdateDisplay();
     }
