@@ -5,14 +5,28 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour{
 
     [SerializeField] bool active = true;
+    [SerializeField] bool spawnRandomized;
+    [SerializeField] float levelStartSpawnDelay;
     [SerializeField] float minSpawnDelay;
     [SerializeField] float maxSpawnDelay;
-    [SerializeField] Attacker attackerPrefab;
+    [SerializeField] Attacker[] attackerPrefabs;
+
+    int attackerIndex;
 
     IEnumerator Start(){
+
+        yield return new WaitForSeconds(levelStartSpawnDelay);
+
+        if (Random.Range(0,2) == 0) {
+            SpawnAtacker();
+        }
+
+
         while (active) {
+            
             yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
             SpawnAtacker();
+
         }
     }
 
@@ -26,9 +40,21 @@ public class AttackerSpawner : MonoBehaviour{
     } */
 
     private void SpawnAtacker() {
-        Attacker newAttacker = Instantiate(
-            attackerPrefab, transform.position, transform.rotation)
-            as Attacker;
-        newAttacker.transform.parent = transform;
+
+        if (spawnRandomized) {
+            attackerIndex = Random.Range(0, attackerPrefabs.Length);
+        } 
+       Spawn(attackerPrefabs[attackerIndex]);
+
     }
+
+    private void Spawn(Attacker attacker) {
+
+        Attacker newAttacker = Instantiate(
+           attacker, transform.position, transform.rotation)
+           as Attacker;
+        newAttacker.transform.parent = transform;
+
+    }
+
 }
