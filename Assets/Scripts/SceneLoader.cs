@@ -60,4 +60,13 @@ public class SceneLoader : MonoBehaviour{
         yield return new WaitForSeconds(secondsDelay);
         loadScene(mainMenuIndex);
     }
+
+    public IEnumerator loadNextLevel(float secondsDelay) {
+        yield return new WaitForSeconds(secondsDelay);
+        if (currentSceneIndex +1 < (SceneManager.sceneCount)) {
+            loadScene(currentSceneIndex +1);
+        } else {
+            //TODO reached the last level
+        }
+    }
 }

@@ -7,8 +7,11 @@ public class LevelControler : MonoBehaviour{
 
     [SerializeField] int playerStartingLifes = 10;
     [SerializeField] float gameOverDelay = 2f;
+    [SerializeField] float victoryDelay = 2f;
+
     [Tooltip("Level Duration in seconds")]
     [SerializeField] float gameDuration = 60f;
+    [SerializeField] GameObject victoryScreen;
 
 
     //cached references
@@ -22,6 +25,7 @@ public class LevelControler : MonoBehaviour{
 
 
     void Start(){
+        victoryScreen.SetActive(false);
         FindObjectOfType<GameTimer>().LevelDuration = gameDuration;
         sceneLoader = FindObjectOfType<SceneLoader>();
         playerLifeDisplay = FindObjectOfType<PlayerLifeDisplay>();
@@ -55,17 +59,18 @@ public class LevelControler : MonoBehaviour{
 
     public void AttackerWasDestroyed() {
         numberOfAttackersAlive--;
-        EndOfLevel();
-    }
-
-    private void EndOfLevel() {
-        Debug.Log("Test");
         if (numberOfAttackersAlive <= 0 && levelTimerFinished) {
-            Debug.Log("You did it!");
-        } else {
-            return;
+           HandleEndOfLevel();
         }
     }
+
+    private void HandleEndOfLevel() {
+        victoryScreen.SetActive(true);
+        AudioSource winAudio = victoryScreen.GetComponent<AudioSource>();
+        winAudio.Play();
+        StartCoroutine(sceneLoader.loadNextLevel(victoryDelay));
+    }
+
 
     public void LevelTimerEnded() {
         levelTimerFinished = true;
