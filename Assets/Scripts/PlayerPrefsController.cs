@@ -25,6 +25,16 @@ public class PlayerPrefsController : MonoBehaviour{
     }
 
     public static float GetMasterVolume() {
-        return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
+        float volume;
+
+        if (PlayerPrefs.HasKey(MASTER_VOLUME_KEY)) {
+            volume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
+        } else {
+
+            var settings = new SettingsController();
+            volume = settings.getDefaultVolume();
+        }
+
+        return volume;
     }
 }

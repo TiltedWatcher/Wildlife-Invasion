@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &84667492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1704274877199925042, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+  m_PrefabInstance: {fileID: 1704274877436062403}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1014666118 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1326614056644273739, guid: 08d5ce8636e93cc4a9a46d706d4cc224, type: 3}
@@ -251,6 +262,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1902275719
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902275721}
+  - component: {fileID: 1902275720}
+  m_Layer: 0
+  m_Name: SettingsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1902275720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902275719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15993b074c18ba46ab2413f379f0ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 84667492}
+  defaultVolume: 0.5
+--- !u!4 &1902275721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902275719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1326614056037578189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,6 +378,10 @@ PrefabInstance:
     - target: {fileID: 1704274877124691490, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877199925042, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_Value
+      value: 0.314
       objectReference: {fileID: 0}
     - target: {fileID: 1704274877621432671, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -427,6 +487,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1014666118}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1902275720}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveAndExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704274877953442358, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1704274878158332251, guid: d3ccf224900dd084f82d5735c082d45b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
