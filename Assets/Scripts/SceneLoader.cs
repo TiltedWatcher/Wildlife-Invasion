@@ -51,6 +51,10 @@ public class SceneLoader : MonoBehaviour{
         loadScene("MainMenu");
     }
 
+    public void QuitGame() {
+        Application.Quit();
+    }
+
     public IEnumerator loadSceneWithDelay(float secondsDelay, int sceneIndex) {
         yield return new WaitForSeconds(secondsDelay);
         loadScene(sceneIndex);
@@ -80,4 +84,5 @@ public class SceneLoader : MonoBehaviour{
             //TODO reached the last level
         }
     }
+
 }
