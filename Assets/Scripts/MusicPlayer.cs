@@ -10,12 +10,16 @@ public class MusicPlayer : MonoBehaviour{
     AudioSource musicPlayer;
     int currentSongIndex;
     int songCount;
+    float rawVolume;
 
     void Start(){
+        
         DontDestroyOnLoad(this);
         musicPlayer = GetComponent<AudioSource>();
-        musicPlayer.volume *= PlayerPrefsController.GetMasterVolume();
+        rawVolume = musicPlayer.volume;
+        musicPlayer.volume = rawVolume * PlayerPrefsController.GetMasterVolume();
         songCount = gameMusic.Length;
+
     }
 
     private void Update() {
@@ -39,11 +43,11 @@ public class MusicPlayer : MonoBehaviour{
     }
 
     public void SetVolume(float volume) {
-        musicPlayer.volume *= volume;
+        musicPlayer.volume = rawVolume * volume;
     }
 
-    public void DirectlySetVolume(float volume) {
-        volume = Mathf.Clamp(volume, 0, 1);
-        musicPlayer.volume = volume;
+    public void DirectlySetRawVolume(float volume) {
+        rawVolume = Mathf.Clamp(volume, 0, 1);
+        musicPlayer.volume = rawVolume;
     }
 }
