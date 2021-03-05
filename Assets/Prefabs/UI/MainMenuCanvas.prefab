@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7412792837592315402}
   - component: {fileID: 7412792837592315403}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StartGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 7412792837715809737}
   - component: {fileID: 7412792837715809742}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +444,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7412792837715809737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Settings
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7412792837915504484
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +649,7 @@ GameObject:
   - component: {fileID: 7412792839024792875}
   - component: {fileID: 7412792839024792872}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: QuitGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,4 +814,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7412792839024792875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

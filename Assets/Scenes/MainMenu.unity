@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1542656919}
+    - target: {fileID: 7412792837715809742, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1542656919}
     - target: {fileID: 7412792838930461574, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -422,5 +426,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7412792839024792872, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1542656919}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
