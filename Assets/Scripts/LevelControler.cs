@@ -12,6 +12,7 @@ public class LevelControler : MonoBehaviour{
     [Tooltip("Level Duration in seconds")]
     [SerializeField] float gameDuration = 60f;
     [SerializeField] GameObject victoryScreen;
+    [SerializeField] GameObject gameOverScreen;
 
 
     //cached references
@@ -26,6 +27,7 @@ public class LevelControler : MonoBehaviour{
 
 
     void Start(){
+        gameOverScreen.SetActive(false);
         victoryScreen.SetActive(false);
         FindObjectOfType<GameTimer>().LevelDuration = gameDuration;
         sceneLoader = FindObjectOfType<SceneLoader>();
@@ -41,13 +43,12 @@ public class LevelControler : MonoBehaviour{
         }
     }
 
-    private void Update() {
-    }
 
     private void GameOver() {
-
+        gameOverScreen.SetActive(true);
         levelRunning = false;
-        sceneLoader.loadGameOver(gameOverDelay);
+        Time.timeScale = 0;
+        //sceneLoader.loadGameOver(gameOverDelay);
     }
 
     public int Lifes {
@@ -70,6 +71,7 @@ public class LevelControler : MonoBehaviour{
     }
 
     private void HandleEndOfLevel() {
+        levelRunning = false;
         victoryScreen.SetActive(true);
         AudioSource winAudio = victoryScreen.GetComponent<AudioSource>();
         winAudio.Play();

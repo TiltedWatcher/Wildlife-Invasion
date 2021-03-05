@@ -32,6 +32,7 @@ public class SceneLoader : MonoBehaviour{
     }
 
     public void reloadScene() {
+        Time.timeScale = 1;
         loadScene(currentSceneIndex);   
     }
 
