@@ -185,6 +185,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a6dce04b58df34ca1f1eaa67f9e8cd, type: 3}
+--- !u!114 &1542656919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5774466340527593357, guid: 48a6dce04b58df34ca1f1eaa67f9e8cd, type: 3}
+  m_PrefabInstance: {fileID: 1542656918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e311eace23d2324484de9b779d3d7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1552443901
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +326,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7412792837592315403, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1542656919}
     - target: {fileID: 7412792838930461574, guid: eaacebcc0a2d5d642a94802aa4cd8e48, type: 3}
       propertyPath: m_Pivot.x
       value: 0

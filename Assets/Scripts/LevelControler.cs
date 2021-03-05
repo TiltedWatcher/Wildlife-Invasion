@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelControler : MonoBehaviour{
 
     [SerializeField] int playerStartingLifes = 10;
-    [SerializeField] float gameOverDelay = 2f;
+    //[SerializeField] float gameOverDelay = 2f;
     [SerializeField] float victoryDelay = 2f;
 
     [Tooltip("Level Duration in seconds")]
