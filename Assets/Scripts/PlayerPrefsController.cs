@@ -11,7 +11,9 @@ public class PlayerPrefsController : MonoBehaviour{
 
     //other keys
     const float MIN_VOLUME = 0f;
-    const float MAX_VOLUME = 1f;
+    const float MAX_VOLUME = 1f; 
+    const float MIN_DIFFICULTY = 0f;
+    const float MAX_DIFFICULTY = 2f;
 
     public static void SetMasterVolume(float volume) {
 
@@ -30,11 +32,40 @@ public class PlayerPrefsController : MonoBehaviour{
         if (PlayerPrefs.HasKey(MASTER_VOLUME_KEY)) {
             volume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
         } else {
+            var settings = FindObjectOfType<SettingsController>();
 
-            var settings = new SettingsController();
-            volume = settings.getDefaultVolume();
+            if (settings == null) {
+                settings = new SettingsController();
+            } 
+
+            volume = settings.getDefaultVolume(); 
         }
 
         return volume;
+    }
+
+    public static void SetDifficulty(float difficulty) {
+        if (difficulty >= MIN_DIFFICULTY && difficulty <= MAX_DIFFICULTY) {
+            PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
+        } else {
+            Debug.LogError("Something got fucked. Difficulty out of range. Attempted to set difficulty as " + difficulty);
+        }
+    }
+
+    public static float GetDifficulty() {
+
+        float difficulty;
+
+        if (PlayerPrefs.HasKey(DIFFICULTY_KEY)) {
+            difficulty = PlayerPrefs.GetFloat(DIFFICULTY_KEY);
+        } else {
+            var settings = FindObjectOfType<SettingsController>();
+            if (settings == null) {
+                settings = new SettingsController();
+            }
+            difficulty = settings.getDefaultDifficulty();
+        }
+
+        return difficulty;
     }
 }

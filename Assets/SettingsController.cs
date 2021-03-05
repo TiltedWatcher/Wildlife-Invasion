@@ -9,11 +9,17 @@ public class SettingsController : MonoBehaviour{
     //volume multiplied by:
     [SerializeField] float defaultVolume = 0.5f;
 
+    [SerializeField] Slider difficultySlider;
+    [SerializeField] float defaultDifficulty = 1f;
+
+    [SerializeField] float[] difficultyMultipliers;
+
     MusicPlayer musicPlayer;
 
     void Start(){
         volumeSlider.value = PlayerPrefsController.GetMasterVolume();
         musicPlayer = FindObjectOfType<MusicPlayer>();
+        difficultySlider.value = PlayerPrefsController.GetDifficulty();
         
     }
 
@@ -32,8 +38,13 @@ public class SettingsController : MonoBehaviour{
         return defaultVolume;
     }
 
+    public float getDefaultDifficulty() {
+        return defaultDifficulty;
+    }
+
     public void ResetToDefaults() {
         volumeSlider.value = defaultVolume;
+        difficultySlider.value = defaultDifficulty;
     }
 
     public void SaveAndExit() {
