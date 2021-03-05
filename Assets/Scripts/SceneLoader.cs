@@ -20,10 +20,12 @@ public class SceneLoader : MonoBehaviour{
     }
 
     public void loadScene(int sceneIndex) {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneIndex);
     }
 
     public void loadScene(string sceneName) {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -38,6 +40,7 @@ public class SceneLoader : MonoBehaviour{
 
 
     public void loadMainMenu() {
+        Time.timeScale = 1;
         loadScene(mainMenuIndex);
     }
 
