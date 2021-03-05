@@ -32,6 +32,7 @@ public class AttackerSpawner : MonoBehaviour{
 
     public void StopSpawning() {
         spawning = false;
+        StopAllCoroutines();
         StopCoroutine(Start());
     }
 

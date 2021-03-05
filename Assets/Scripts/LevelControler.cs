@@ -22,6 +22,7 @@ public class LevelControler : MonoBehaviour{
     int numberOfAttackersAlive = 0;
     int currentLifeCount;
     bool levelTimerFinished;
+    bool levelRunning = true;
 
 
     void Start(){
@@ -45,12 +46,16 @@ public class LevelControler : MonoBehaviour{
 
     private void GameOver() {
 
-
+        levelRunning = false;
         sceneLoader.loadGameOver(gameOverDelay);
     }
 
     public int Lifes {
         get => playerStartingLifes;
+    }
+
+    public bool LevelRunning {
+        get => levelRunning;
     }
 
     public void AttackerHasSpawned() {

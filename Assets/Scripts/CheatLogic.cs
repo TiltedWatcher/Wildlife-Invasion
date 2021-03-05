@@ -10,15 +10,21 @@ public class CheatLogic : MonoBehaviour{
 
     // cached references
     SunTracker sunManager;
+    LevelControler level;
 
     void Start(){
+        level = FindObjectOfType<LevelControler>();
         sunManager = FindObjectOfType<SunTracker>();
     }
 
     // Update is called once per frame
     void Update(){
-        CheckCheats();
-        Time.timeScale = currentTimeScale;
+
+        if(level.LevelRunning){
+            CheckCheats();
+            Time.timeScale = currentTimeScale;
+        }
+
     }
 
     private void CheckCheats() {
