@@ -63,7 +63,7 @@ public class SceneLoader : MonoBehaviour{
 
     public IEnumerator loadNextLevel(float secondsDelay) {
         yield return new WaitForSeconds(secondsDelay);
-        if (currentSceneIndex +1 < (SceneManager.sceneCount)) {
+        if (currentSceneIndex +1 < (SceneManager.sceneCountInBuildSettings)) {
             loadScene(currentSceneIndex +1);
         } else {
             //TODO reached the last level
