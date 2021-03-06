@@ -13,9 +13,19 @@ public class DefendersShooter : MonoBehaviour{
     AttackerSpawner myLaneSpawner;
     Animator animator;
 
+    GameObject projectileParent;
+    const string PROJECTILE_PARENT_NAME = "Projectiles";
+
     private void Start() {
         setLaneSpawner();
         animator = GetComponent<Animator>();
+        CreateProjectileParent();
+    }
+
+    private void CreateProjectileParent() {
+        if (!projectileParent) {
+            projectileParent = new GameObject(PROJECTILE_PARENT_NAME);
+        }
     }
 
     private void Update() {
@@ -51,7 +61,10 @@ public class DefendersShooter : MonoBehaviour{
 
 
     public void Fire( ) {
+
+        //GameObject newProjectile = Instantiate(projectilePrefab, projectileShooter.transform.position, Quaternion.identity) as GameObject;
         var projectile = Instantiate(projectilePrefab, projectileShooter.transform.position, Quaternion.identity);
+        projectile.transform.parent = projectileParent.transform;
         //projectile.Speed = projectileSpeed;
     }
 }
