@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b724dcd5e34a474caa2e0ef479af05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSunAmount: 1000
+  startingSunAmount: 100
 --- !u!1 &1854282756
 GameObject:
   m_ObjectHideFlags: 0

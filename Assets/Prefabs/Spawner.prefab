@@ -45,9 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   spawnRandomized: 1
-  levelStartSpawnDelay: 3
+  levelStartSpawnDelay: 5
   minSpawnDelay: 5
   maxSpawnDelay: 15
   attackerPrefabs:
-  - {fileID: 5766549928935327170, guid: 2690dc63b1a8fab4c918860400320cc1, type: 3}
   - {fileID: 4053497988197414190, guid: d308a4b58768cbf4eb47f1a2173cea3d, type: 3}

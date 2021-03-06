@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour{
 
     [SerializeField] float splashScreenWaitTime;
+    [SerializeField] const string MAIN_MENU_NAME = "MainMenu";
 
     int currentSceneIndex;
     // Start is called before the first frame update
@@ -48,7 +49,7 @@ public class SceneLoader : MonoBehaviour{
 
     public void loadMainMenu() {
         Time.timeScale = 1;
-        loadScene("MainMenu");
+        loadScene(MAIN_MENU_NAME);
     }
 
     public void QuitGame() {
@@ -73,7 +74,7 @@ public class SceneLoader : MonoBehaviour{
     public IEnumerator loadMainMenu(float secondsDelay) {
         Debug.Log("loading Main Menu");
         yield return new WaitForSeconds(secondsDelay);
-        loadScene("MainMenu");
+        loadScene(MAIN_MENU_NAME);
     }
 
     public IEnumerator loadNextLevel(float secondsDelay) {
@@ -81,7 +82,7 @@ public class SceneLoader : MonoBehaviour{
         if (currentSceneIndex +1 < (SceneManager.sceneCountInBuildSettings)) {
             loadScene(currentSceneIndex +1);
         } else {
-            //TODO reached the last level
+            loadMainMenu();
         }
     }
 

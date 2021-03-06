@@ -51,7 +51,7 @@ MonoBehaviour:
   - 1
   - 0.5
   victoryDelay: 3.5
-  gameDuration: 5
+  gameDuration: 60
   victoryScreen: {fileID: 0}
   gameOverScreen: {fileID: 0}
 --- !u!114 &8271067883556389740
