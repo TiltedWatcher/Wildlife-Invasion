@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class LevelControler : MonoBehaviour{
 
-    [SerializeField] int playerStartingLifes = 10;
+    [SerializeField] float playerStartingLivesBase = 5;
+    [SerializeField] float[] difficultyMultipliers;
+
     //[SerializeField] float gameOverDelay = 2f;
     [SerializeField] float victoryDelay = 2f;
 
@@ -20,18 +22,22 @@ public class LevelControler : MonoBehaviour{
     PlayerLifeDisplay playerLifeDisplay;
 
     //states
+    float playerStartingLifes;
     int numberOfAttackersAlive = 0;
-    int currentLifeCount;
+    float currentLifeCount;
     bool levelTimerFinished;
     bool levelRunning = true;
 
 
     void Start(){
+        playerStartingLifes = Mathf.Round( playerStartingLivesBase * difficultyMultipliers[(int)PlayerPrefsController.GetDifficulty()]);
         gameOverScreen.SetActive(false);
         victoryScreen.SetActive(false);
         FindObjectOfType<GameTimer>().LevelDuration = gameDuration;
         sceneLoader = FindObjectOfType<SceneLoader>();
         playerLifeDisplay = FindObjectOfType<PlayerLifeDisplay>();
+        Debug.Log("difficulty setting is currently " + PlayerPrefsController.GetDifficulty());
+        Debug.Log("difficulty multiplier is currently " + difficultyMultipliers[(int)PlayerPrefsController.GetDifficulty()]);
     }
 
 
@@ -51,7 +57,7 @@ public class LevelControler : MonoBehaviour{
         //sceneLoader.loadGameOver(gameOverDelay);
     }
 
-    public int Lifes {
+    public float Lifes {
         get => playerStartingLifes;
     }
 

@@ -1324,10 +1324,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8271067883556389743, guid: 29d93620e105b64438a390ceca607f0d, type: 3}
-      propertyPath: gameDuration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271067883556389743, guid: 29d93620e105b64438a390ceca607f0d, type: 3}
       propertyPath: victoryScreen
       value: 
       objectReference: {fileID: 1676900253}

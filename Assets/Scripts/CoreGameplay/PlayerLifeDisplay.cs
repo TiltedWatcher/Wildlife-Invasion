@@ -8,7 +8,7 @@ public class PlayerLifeDisplay : MonoBehaviour{
 
     TextMeshProUGUI lifesText;
     LevelControler levelControler;
-    int currentLifeCount;
+    float currentLifeCount;
 
 
     void Start() {
@@ -28,7 +28,7 @@ public class PlayerLifeDisplay : MonoBehaviour{
         UpdateDisplay();
     }
 
-    public int removeLifes(int amount) {
+    public float removeLifes(int amount) {
         currentLifeCount -= amount;
         UpdateDisplay();
         return currentLifeCount;
