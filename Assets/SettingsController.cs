@@ -7,10 +7,10 @@ public class SettingsController : MonoBehaviour{
 
     [SerializeField] Slider volumeSlider;
     //volume multiplied by:
-    [SerializeField] float defaultVolume = 0.5f;
+    [SerializeField] static float defaultVolume = 0.5f;
 
     [SerializeField] Slider difficultySlider;
-    [SerializeField] float defaultDifficulty = 1f;
+    [SerializeField] static float defaultDifficulty = 1f;
 
     [SerializeField] float[] difficultyMultipliers;
 
@@ -34,11 +34,11 @@ public class SettingsController : MonoBehaviour{
 
     }
 
-    public float getDefaultVolume() {
+    public static float getDefaultVolume() {
         return defaultVolume;
     }
 
-    public float getDefaultDifficulty() {
+    public static float getDefaultDifficulty() {
         return defaultDifficulty;
     }
 
@@ -50,6 +50,7 @@ public class SettingsController : MonoBehaviour{
     public void SaveAndExit() {
 
         PlayerPrefsController.SetMasterVolume(volumeSlider.value);
+        PlayerPrefsController.SetDifficulty(difficultySlider.value);
         FindObjectOfType<SceneLoader>().loadMainMenu();
         
     }

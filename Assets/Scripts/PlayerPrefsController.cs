@@ -32,13 +32,14 @@ public class PlayerPrefsController : MonoBehaviour{
         if (PlayerPrefs.HasKey(MASTER_VOLUME_KEY)) {
             volume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
         } else {
-            var settings = FindObjectOfType<SettingsController>();
+            /* var settings = FindObjectOfType<SettingsController>();
 
-            if (settings == null) {
-                settings = new SettingsController();
-            } 
+             if (settings == null) {
+                 settings = new SettingsController();
+             } 
 
-            volume = settings.getDefaultVolume(); 
+             volume = settings.getDefaultVolume(); */
+            volume = SettingsController.getDefaultVolume();
         }
 
         return volume;
@@ -59,11 +60,11 @@ public class PlayerPrefsController : MonoBehaviour{
         if (PlayerPrefs.HasKey(DIFFICULTY_KEY)) {
             difficulty = PlayerPrefs.GetFloat(DIFFICULTY_KEY);
         } else {
-            var settings = FindObjectOfType<SettingsController>();
+           /* var settings = FindObjectOfType<SettingsController>();
             if (settings == null) {
                 settings = new SettingsController();
-            }
-            difficulty = settings.getDefaultDifficulty();
+            }*/
+            difficulty = SettingsController.getDefaultDifficulty();
         }
 
         return difficulty;

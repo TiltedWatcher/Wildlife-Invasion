@@ -715,18 +715,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1115096998}
     m_Modifications:
-    - target: {fileID: -4179900641926072267, guid: 061e5196dc1f1b946bd68d98e263a056, type: 3}
-      propertyPath: maxSpawnDelay
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: -4179900641926072267, guid: 061e5196dc1f1b946bd68d98e263a056, type: 3}
-      propertyPath: minSpawnDelay
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -4179900641926072267, guid: 061e5196dc1f1b946bd68d98e263a056, type: 3}
-      propertyPath: attackerPrefab
-      value: 
-      objectReference: {fileID: 4053497988197414190, guid: d308a4b58768cbf4eb47f1a2173cea3d, type: 3}
     - target: {fileID: 1875532790695611358, guid: 061e5196dc1f1b946bd68d98e263a056, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1501,10 +1489,6 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 7246530219322239696}
-    - target: {fileID: 8271067883556389743, guid: 29d93620e105b64438a390ceca607f0d, type: 3}
-      propertyPath: playerStartingLifes
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d93620e105b64438a390ceca607f0d, type: 3}
 --- !u!114 &8271067883683740358 stripped
