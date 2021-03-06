@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DefenderButton : MonoBehaviour{
     [SerializeField] Defender defender;
@@ -14,6 +17,24 @@ public class DefenderButton : MonoBehaviour{
         demoButton = FindObjectOfType<Demolition>();
         if (isDefaultButton) {
             selectDefender();
+        }
+
+        LabelButtonWithCost();
+            
+        
+    }
+
+    private void LabelButtonWithCost() {
+        TextMeshPro costText = GetComponentInChildren<TextMeshPro>();
+
+        Debug.Log("Number of text meshes" + GetComponentsInChildren<TextMeshPro>().Length);
+
+        Debug.Log(costText.text);
+        if (!costText) {
+            Debug.LogError(name + " has no TextLabel");
+        } else {
+            costText.text = defender.getSunCost().ToString();
+            Debug.Log("Test");
         }
     }
 
