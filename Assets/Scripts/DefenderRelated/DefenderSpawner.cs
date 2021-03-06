@@ -9,10 +9,20 @@ public class DefenderSpawner : MonoBehaviour{
     Defender defender;
     int sunCountCurrent;
     AudioSource audioPlayer;
+    GameObject defenderParent;
+
+    const string DEFENDER_PARENT_NAME = "Defender";
 
     private void Start() {
-        //defender = defaultDefender;
+        CreateDefenderParent();
         audioPlayer = GetComponent<AudioSource>();
+    }
+
+    private void CreateDefenderParent() {
+        defenderParent = GameObject.Find(DEFENDER_PARENT_NAME);
+        if (!defenderParent) {
+            defenderParent = new GameObject(DEFENDER_PARENT_NAME);
+        }
     }
 
     private void OnMouseDown() {
@@ -25,6 +35,7 @@ public class DefenderSpawner : MonoBehaviour{
 
     private void SpawnDefender(Vector2 spawnPos) {
         Defender newDefender = Instantiate(defender, spawnPos, Quaternion.identity) as Defender;
+        newDefender.transform.parent = defenderParent.transform;
 
     }
 
